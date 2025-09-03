@@ -16,8 +16,40 @@ STEP-4: Else subtract the key from the plain text.
 STEP-5: Display the cipher text obtained above.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+#include <string.h>
+
+void caesarCipher(char *text, int shift)
+{
+    for (int i = 0; text[i]; i++)
+    {
+        if (text[i] >= 'A' && text[i] <= 'Z')
+        {
+            text[i] = ((text[i] - 'A' + shift + 26) % 26) + 'A';
+        }
+    }
+}
+
+int main()
+{
+    char text[] = "MAHALINGA JEYANTH";
+    
+    printf("Plain Text: %s\n", text);
+    
+    caesarCipher(text, 3);
+    printf("Encrypted Message: %s\n", text);
+    
+    caesarCipher(text, -3);
+    printf("Decrypted Message: %s\n", text);
+    
+    return 0;
+}
+```
 
 ## OUTPUT:
+<img width="1574" height="868" alt="Screenshot 2025-09-03 101746" src="https://github.com/user-attachments/assets/e30e89fb-98e7-4229-bf7b-b03d53843abd" />
+
 
 ## RESULT :
  Thus the implementation of ceasar cipher had been executed successfully.
